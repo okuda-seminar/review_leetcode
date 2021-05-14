@@ -30,12 +30,14 @@ class Solution:
         while copy_headB:
             len_headB += 1
             copy_headB = copy_headB.next
+
         if len_headA < len_headB:
             for diff in range(len_headB - len_headA):
                 headB = headB.next
-        if len_headB < len_headA:
+        elif len_headB < len_headA:
             for diff in range(len_headA - len_headB):
                 headA = headA.next
+
         while headA:
             if headA == headB:
                 return headA
