@@ -24,7 +24,10 @@ class Solution:
         right_node_depth = self.depth(root.right)
         return (abs(left_node_depth - right_node_depth) < 2) and self.isBalanced(root.left) and self.isBalanced(root.right)
 
-    def depth(self, node):
+    def depth(self, node: TreeNode) -> int:
+        """
+        calculate the node depth
+        """
         if not node:
             return 0
 
