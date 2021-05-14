@@ -16,7 +16,7 @@ class Solution:
             cur_price = prices[day]
             pre_price = prices[day - 1]
             if pre_price <= cur_price:
-                sum_profit_to_day += (cur_price - pre_price)
+                sum_profit_to_day += cur_price - pre_price
         return sum_profit_to_day
 
 # @lc code=end
