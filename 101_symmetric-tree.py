@@ -18,16 +18,10 @@ class Solution:
         space: O(N)
         """
         return True if not root else self.check_mirror(root.left, root.right)
-            
-    def check_mirror(self, left, right):
+
+    def check_mirror(self, left: TreeNode, right: TreeNode) -> bool:
         """
         check whether the left and right are mirrored or not
-
-        Parameters
-        ----------
-        :type left: TreeNode
-        :type right: TreeNode
-        :rtype: bool
         """
         if not left and not right:
             return True
