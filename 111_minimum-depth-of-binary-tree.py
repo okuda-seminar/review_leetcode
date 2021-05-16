@@ -26,13 +26,11 @@ class Solution:
         stack = deque([[root, depth]])
 
         while stack:
-            cur_root, depth = stack.pop()
-            if not cur_root.right and not cur_root.left:
-                min_depth = min(depth, min_depth)
-                continue
-            if cur_root.left:
-                stack.append([cur_root.left, depth + 1])
-            if cur_root.right:
-                stack.append([cur_root.right, depth + 1])
+            cur_node, depth = stack.pop()
+            if cur_node:
+                if not cur_node.right and not cur_node.left:
+                    min_depth = min(depth, min_depth)
+                stack.append([cur_node.left, depth + 1])
+                stack.append([cur_node.right, depth + 1])
 
         return min_depth
