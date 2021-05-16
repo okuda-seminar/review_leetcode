@@ -21,10 +21,10 @@ class Solution:
         stack = deque([root])
         node_vals = set()
         while stack:
-            node = stack.popleft()
-            if node is None:
+            cur_node = stack.popleft()
+            if cur_node is None:
                 continue
-            node_vals.add(node.val)
-            stack.append(node.left)
-            stack.append(node.right)
+            node_vals.add(cur_node.val)
+            stack.append(cur_node.left)
+            stack.append(cur_node.right)
         return sorted(node_vals)[1] if 2 <= len(node_vals) else -1
