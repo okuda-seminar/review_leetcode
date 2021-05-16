@@ -23,14 +23,14 @@ class Solution:
 
         stack = deque([[root, targetSum - root.val]])
         while stack:
-            cur_root, targetSum_rest = stack.pop()
-            if not cur_root.left and not cur_root.right:
+            cur_node, targetSum_rest = stack.pop()
+            if not cur_node.left and not cur_node.right:
                 if targetSum_rest == 0:
                     return True
 
-            if cur_root.left:
-                stack.append([cur_root.left, targetSum_rest - cur_root.left.val])
-            if cur_root.right:
-                stack.append([cur_root.right, targetSum_rest - cur_root.right.val])
+            if cur_node.left:
+                stack.append([cur_node.left, targetSum_rest - cur_node.left.val])
+            if cur_node.right:
+                stack.append([cur_node.right, targetSum_rest - cur_node.right.val])
 
         return False
