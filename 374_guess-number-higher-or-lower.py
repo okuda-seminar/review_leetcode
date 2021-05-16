@@ -10,17 +10,19 @@ class Solution:
         if guess(n) == 0:
             return n
 
-        low = 1
-        high = n
-        mid = (low + high) >> 1
-        while low < high:
-            is_middle_low_or_high = guess(mid)
-            if is_middle_low_or_high == -1:
-                high = mid
-                mid = (low + high) >> 1
-            elif is_middle_low_or_high == 1:
-                low = mid
-                mid = (low + high) >> 1
+        left = 1
+        right = n + 1
+
+        while left < right:
+            mid = left + right >> 1
+            comp = guess(mid)
+
+            if comp == 0:
+                return mid
+
+            if 0 < comp:
+                left = mid + 1
             else:
-                low += 1
-        return mid
+                right = mid
+
+        return right - 1
