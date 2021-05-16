@@ -1,8 +1,15 @@
+# n = num
+# time = O(logn)
+# space = O(logn)
+# done time = 10m
+
+
 class Solution:
+
     def checkPerfectNumber(self, num: int) -> bool:
         if num == 1:
             return False
-        
+
         divisors = [1]
         div = 2
         while div ** 2 < num:
