@@ -7,6 +7,10 @@
 # @lc code=start
 class Solution:
     def summaryRanges(self, nums: List[int]) -> List[str]:
+        """
+        time: O(len(nums))
+        space: O(len(nums))
+        """
         if not nums:
             return None
 
