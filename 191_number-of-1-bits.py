@@ -11,10 +11,6 @@ class Solution:
         time: O(logn)
         space: O(1)
         """
-        num_of_1_bit = 0
-        for num in bin(n):
-            if num == "1":
-                num_of_1_bit += 1
-        return num_of_1_bit
+        return list(bin(n)).count("1")
 # @lc code=end
 
