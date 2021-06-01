@@ -24,6 +24,7 @@ class Solution:
                     summary_ranges.append(str(start_num)+"->"+str(pre_num))
                 start_num = nums[i]
             pre_num = nums[i]
+
         if pre_num == start_num:
             summary_ranges.append(str(pre_num))
         else:
