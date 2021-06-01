@@ -11,7 +11,7 @@ class Solution:
             return None
 
         def insert(root, val):
-            if not root:
+            if root is None:
                 return TreeNode(val)
 
             if val < root.val:
