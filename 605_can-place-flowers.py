@@ -9,8 +9,8 @@ class Solution:
     def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
         not_planted_num = 1
         for flower in flowerbed:
-            if flower:
-                not_planted_num = 0 
+            if flower != 0:
+                not_planted_num = 0
             else:
                 not_planted_num += 1
 
