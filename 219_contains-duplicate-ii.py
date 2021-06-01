@@ -14,12 +14,12 @@ class Solution:
         if not nums:
             return False
 
-        ref = {}
+        num_position = {}
         for i in range(len(nums)):
-            if nums[i] in ref and abs(i - ref[nums[i]]) <= k:
+            if nums[i] in num_position and abs(i - num_position[nums[i]]) <= k:
                 return True
 
-            ref[nums[i]] = i
+            num_position[nums[i]] = i
         return False
 # @lc code=end
 
