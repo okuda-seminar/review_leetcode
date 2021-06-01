@@ -7,24 +7,8 @@
 class Solution:
 
     def validMountainArray(self, arr: List[int]) -> bool:
-        if len(arr) < 3:
-            return False
-
-        increase = decrease = False
-
-        for i in range(1, len(arr)):
-            if arr[i] == arr[i-1]:
-                return False
-
-            elif arr[i] < arr[i-1]:
-                if decrease:
-                    return False
-
-                increase = True
-            else:
-                if not increase:
-                    return False
-
-                decrease = True
-
-        return increase and decrease
+        N = len(arr)
+        max_idx = arr.index(max(arr))
+        return 0 < max_idx < N - 1 and\
+            all(arr[i] < arr[i + 1] for i in range(max_idx))\
+            and all(arr[i + 1] < arr[i] for i in range(max_idx, N - 1))
