@@ -15,7 +15,7 @@ class Solution:
         stack = deque([cloned])
         while stack:
             curr_node = stack.pop()
-            if not curr_node:
+            if curr_node is None:
                 continue
 
             if curr_node.val == target.val:
