@@ -16,7 +16,7 @@ class Solution:
 
             while stack:
                 curr_node = stack.pop()
-                if not curr_node:
+                if curr_node is None:
                     continue
                 elements.append(curr_node.val)
                 stack.append(curr_node.left)
