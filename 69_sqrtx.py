@@ -10,12 +10,12 @@ class Solution:
         left = 0
         right = x + 1
         sqrt_num = 0
-        while left < right:
+        while 1 < right - left:
             mid = (left + right) >> 1
 
             if mid ** 2 <= x:
                 sqrt_num = mid
-                left = mid + 1
+                left = mid
             else:
                 right = mid
 
