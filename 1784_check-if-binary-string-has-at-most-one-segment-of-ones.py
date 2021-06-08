@@ -10,6 +10,7 @@ class Solution:
         one_count = s.count('1')
         one_continuous_count = 1
         for i in range(1, len(s)):
-            if s[i] == '1' and s[i] == s[i-1]:
+            if s[i] == s[i-1] == '1':
                 one_continuous_count += 1
+
         return one_continuous_count == one_count
