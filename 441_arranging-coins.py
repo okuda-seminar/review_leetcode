@@ -7,10 +7,10 @@
 class Solution:
 
     def arrangeCoins(self, n: int) -> int:
-        low = 1
+        low = 0
         high = n + 1
         res = 0
-        while low < high:
+        while 1 < high - low:
             mid = (low + high) >> 1
             arithmetic_progression_sum_to_mid = mid*(mid + 1) >> 1
 
@@ -19,7 +19,7 @@ class Solution:
 
             if arithmetic_progression_sum_to_mid  < n:
                 res = mid
-                low = mid + 1
+                low = mid
             else:
                 high = mid
         return res
