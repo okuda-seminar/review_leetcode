@@ -10,10 +10,10 @@ class Solution:
         if guess(n) == 0:
             return n
 
-        left = 1
+        left = 0
         right = n + 1
 
-        while left < right:
+        while 1 < right - left:
             mid = left + right >> 1
             comp = guess(mid)
 
@@ -21,7 +21,7 @@ class Solution:
                 return mid
 
             if 0 < comp:
-                left = mid + 1
+                left = mid
             else:
                 right = mid
 
