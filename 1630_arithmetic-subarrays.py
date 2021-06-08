@@ -9,7 +9,7 @@ class Solution:
     def checkArithmeticSubarrays(self, nums: List[int], l: List[int], r: List[int]) -> List[bool]:
         res = []
         for i in range(len(l)):
-            subarray = sorted(nums[l[i]:r[i] + 1])
+            subarray = sorted(nums[l[i]: r[i] + 1])
             diff = subarray[1] - subarray[0]
             res.append(True)
 
