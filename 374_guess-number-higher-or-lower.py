@@ -25,4 +25,4 @@ class Solution:
             else:
                 right = mid
 
-        return right - 1
+        return left
