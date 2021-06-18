@@ -15,9 +15,10 @@ class Solution:
         column_title_list = []
         cur_quotient = columnNumber
         cur_remainder = 0
-        while 26 < cur_quotient:
-            cur_remainder = cur_quotient % 26
-            cur_quotient = (cur_quotient - 1) // 26
+        num_alp = 26
+        while num_alp < cur_quotient:
+            cur_remainder = cur_quotient % num_alp
+            cur_quotient = (cur_quotient - 1) // num_alp
             column_title_list.append(alp[cur_remainder - 1])
         column_title_list.append(alp[cur_quotient - 1])
         return ''.join(column_title_list[::-1])
