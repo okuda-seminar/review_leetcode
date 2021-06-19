@@ -7,15 +7,11 @@
 class Solution:
 
     def longestCommonPrefix(self, strs: List[str]) -> str:
-        if not strs: 
-            return ""
-
-        str_min = min(strs)
-        str_max = max(strs)
-        common_prefix_length = 0
-        for i in range(min(len(str_min), len(str_max))):
-            if str_min[i] != str_max[i]:
+        prefix = ''
+        for str_triplet in zip(*strs):
+            if len(set(str_triplet)) == 1:
+                prefix += str_triplet[0]
+            else:
                 break
-            common_prefix_length += 1
 
-        return str_min[:common_prefix_length]
+        return prefix
