@@ -7,12 +7,13 @@
 class Solution:
 
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
-        nums_dict = {}
+        if not nums:
+            return False
+
+        num_position = {}
         for i, num in enumerate(nums):
-            if i - nums_dict.get(num, -float('inf')) <= k:
+            if num in num_position and abs(i - num_position[num]) <= k:
                 return True
 
-            else:
-                nums_dict[num] = i
-
+            num_position[num] = i
         return False
