@@ -1,5 +1,5 @@
-# n = sequence.length
-# time = O(n^2)
+# n = sequence.length = 100
+# time = O(n^2logn)
 # space  = O(1)
 # done time = 15m
 
@@ -7,9 +7,17 @@
 class Solution:
 
     def maxRepeating(self, sequence: str, word: str) -> int:
-        count = 0
-        concatenation_word = word
-        while concatenation_word in sequence:
-            concatenation_word += word
-            count += 1
-        return count
+        if word not in sequence:
+            return 0
+
+        left = 0
+        right = len(sequence) // len(word) + 1
+
+        while 1 < right - left:
+            mid = (left + right + 1) >> 1
+            if word * mid in sequence:
+                left = mid
+            else:
+                right = mid
+
+        return left
