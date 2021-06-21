@@ -1,5 +1,5 @@
 # n = sequence.length = 100
-# time = O(n^2logn)
+# time = O(nlogn)
 # space  = O(1)
 # done time = 15m
 
