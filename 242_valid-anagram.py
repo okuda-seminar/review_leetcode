@@ -3,7 +3,7 @@
 #
 # [242] Valid Anagram
 #
-import collections
+from collections import Counter
 
 
 # @lc code=start
@@ -23,6 +23,6 @@ class Solution:
         time: O(n)   n : len(max(s, t))
         space: O(n)
         """
-        return collections.Counter(s) == collections.Counter(t)
+        return Counter(s) == Counter(t)
 # @lc code=end
 
