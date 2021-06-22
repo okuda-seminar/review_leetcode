@@ -3,7 +3,7 @@
 #
 # [448] Find All Numbers Disappeared in an Array
 #
-import collections
+from collections import Counter
 
 
 # @lc code=start
@@ -13,7 +13,7 @@ class Solution:
         time: O(len(nums))
         space: O(len(nums))
         """
-        nums_counter = collections.Counter(nums)
+        nums_counter = Counter(nums)
         disappeared_num = []
         for i in range(1, len(nums) + 1):
             if nums_counter[i] == 0:
