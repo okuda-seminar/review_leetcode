@@ -14,11 +14,10 @@ class Solution:
         time: O(len(nums))
         space: O(1)
         """
+        non_zero_idx = 0
         for i in range(len(nums)):
-            if nums[i] == 0:
-                nums.remove(nums[i])
-                nums.append(0)
+            if nums[i] != 0:
+                nums[i], nums[non_zero_idx] = nums[non_zero_idx], nums[i]
+                non_zero_idx += 1
         return nums
-        
 # @lc code=end
-
