@@ -14,11 +14,11 @@ class Solution:
         space: O(n)
         n : max(len(ransomNote), len(magazine))
         """
-        ransomNote_dict = collections.Counter(ransomNote)
-        magazine_dict = collections.Counter(magazine)
+        ransomNote_counter = collections.Counter(ransomNote)
+        magazine_counter = collections.Counter(magazine)
 
-        for alph in ransomNote_dict:
-            if magazine_dict[alph] < ransomNote_dict[alph]:
+        for alph in ransomNote_counter:
+            if magazine_counter[alph] < ransomNote_counter[alph]:
                 return False
 
         return True
