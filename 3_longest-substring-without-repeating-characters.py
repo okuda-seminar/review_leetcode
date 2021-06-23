@@ -16,9 +16,9 @@ class Solution:
         start = 0
         for idx, alph in enumerate(s):
             if alph in ref:
-                sums = ref[alph] + 1
-                if sums > start:
-                    start = sums
+                next_repeating_char = ref[alph] + 1
+                if next_repeating_char > start:
+                    start = next_repeating_char
             cur_max_length = max(idx - start + 1, cur_max_length)
             ref[alph] = idx
         return cur_max_length
