@@ -11,21 +11,26 @@ class Solution:
         time: O(len(pattern))
         space: O(len(pattern))
         """
-        ref = {}
+        ref_char = {}
+        ref_word = {}
         s_list = s.split()
         if len(pattern) != len(s_list):
             return False
 
         for alph, word in zip(pattern, s_list):
-            if alph in ref:
-                if word != ref[alph]:
+            if alph in ref_char:
+                if word != ref_char[alph]:
                     return False
 
-            elif word in ref.values():
-                return False
+            else:
+                ref_char[alph] = word
+
+            if word in ref_word:
+                if alph != ref_word[word]:
+                    return False
 
             else:
-                ref[alph] = word
+                ref_word[word] = alph
 
         return True
 
