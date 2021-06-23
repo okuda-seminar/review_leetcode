@@ -12,10 +12,6 @@ class Solution:
         space: O(n)
         n : min(len(nums1), len(nums2))
         """
-        intersection = []
-        for num in nums1:
-            if num in nums2 and num not in intersection:
-                intersection.append(num)
-        return intersection
+        return set(nums1).intersection(set(nums2))
 # @lc code=end
 
