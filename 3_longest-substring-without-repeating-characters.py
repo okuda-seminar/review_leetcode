@@ -8,7 +8,7 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         """
-        time: O(len(s))
+        time: O(len(s) ** 2)
         space: O(len(s))
         """
         ref = {}
