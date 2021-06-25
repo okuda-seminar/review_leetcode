@@ -15,7 +15,7 @@ class Solution:
         nums.sort()
         output_3_nums = []
         for i in range(len(nums) - 2):
-            if i > 0 and nums[i] == nums[i - 1]:
+            if i and nums[i] == nums[i - 1]:
                 continue
             left = i + 1
             right = len(nums) - 1
@@ -28,7 +28,7 @@ class Solution:
                     cur_3_nums = [nums[i], nums[left], nums[right]]
                     left += 1
                     right -= 1
-                    if len(output_3_nums) > 0 and cur_3_nums == output_3_nums[-1]:
+                    if output_3_nums and cur_3_nums == output_3_nums[-1]:
                         continue
                     output_3_nums.append(cur_3_nums)
 
