@@ -11,9 +11,6 @@ class Solution:
         time: O(len(nums))
         space: O(1)
         """
-        min_moves_num = 0
         min_num = min(nums)
-        for num in nums:
-            min_moves_num += num - min_num
-        return min_moves_num
+        return sum([num - min_num for num in nums])
 # @lc code=end
