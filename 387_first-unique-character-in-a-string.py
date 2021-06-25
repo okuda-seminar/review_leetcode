@@ -3,7 +3,7 @@
 #
 # [387] First Unique Character in a String
 #
-import collections
+from collections import Counter
 
 
 # @lc code=start
@@ -14,7 +14,7 @@ class Solution:
         space: O(1)
         n : len(s)
         """
-        s_counter = collections.Counter(s)
+        s_counter = Counter(s)
         for i in range(len(s)):
             if s_counter[s[i]] == 1:
                 return i
