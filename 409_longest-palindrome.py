@@ -3,7 +3,7 @@
 #
 # [409] Longest Palindrome
 #
-import collections
+from collections import Counter
 
 
 # @lc code=start
@@ -13,7 +13,7 @@ class Solution:
         time: O(len(s))
         space: O(len(s))
         """
-        s_counter = collections.Counter(s)
+        s_counter = Counter(s)
         palindrome_len = 0
         for num in s_counter.values():
             if num % 2 == 0:
