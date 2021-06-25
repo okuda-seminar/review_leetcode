@@ -14,9 +14,9 @@ class Solution:
         space: O(1)
         n : len(s)
         """
-        s_dict = collections.Counter(s)
+        s_counter = collections.Counter(s)
         for i in range(len(s)):
-            if s_dict[s[i]] == 1:
+            if s_counter[s[i]] == 1:
                 return i
 
         return -1
