@@ -16,10 +16,9 @@ class Solution:
         for num in nums:
             if num == 1:
                 cur_consecutive += 1
-            else:
                 max_consecutive = max(max_consecutive, cur_consecutive)
+            else:
                 cur_consecutive = 0
 
-        max_consecutive = max(max_consecutive, cur_consecutive)
         return max_consecutive
 # @lc code=end
