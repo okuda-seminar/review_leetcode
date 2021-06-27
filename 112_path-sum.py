@@ -1,10 +1,7 @@
-# n = nodes num
+# n = the number of nodes of root
 # time = O(n)
 # space = O(n)
 # done time = 40m
-
-
-from collections import deque
 
 
 class TreeNode:
@@ -18,19 +15,12 @@ class TreeNode:
 class Solution:
 
     def hasPathSum(self, root: TreeNode, targetSum: int) -> bool:
-        if not root:
+        if root is None:
             return False
 
-        stack = deque([[root, targetSum - root.val]])
-        while stack:
-            cur_node, targetSum_rest = stack.pop()
-            if not cur_node.left and not cur_node.right:
-                if targetSum_rest == 0:
-                    return True
+        elif root.left is None and root.right is None and root.val == targetSum:
+            return True
 
-            if cur_node.left:
-                stack.append([cur_node.left, targetSum_rest - cur_node.left.val])
-            if cur_node.right:
-                stack.append([cur_node.right, targetSum_rest - cur_node.right.val])
-
-        return False
+        else:
+            return self.hasPathSum(root.left, targetSum - root.val)\
+                or self.hasPathSum(root.right, targetSum - root.val)
