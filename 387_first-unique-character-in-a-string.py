@@ -11,7 +11,7 @@ class Solution:
     def firstUniqChar(self, s: str) -> int:
         """
         time: O(n)
-        space: O(1)
+        space: O(n)
         n : len(s)
         """
         s_counter = Counter(s)
