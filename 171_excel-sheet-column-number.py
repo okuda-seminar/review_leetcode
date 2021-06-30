@@ -14,11 +14,11 @@ class Solution:
         space: O(len(columnTitle))
         """
         ref = {}
-        for i in range(1, 27):
+        num_alp = 26
+        for i in range(1, num_alp + 1):
             ref[chr(64 + i)] = i
         columnTitle_list = list(columnTitle)
         cur_num = 0
-        num_alp = 26
         for idx, char in enumerate(columnTitle_list):
             cur_num += ref[char] * (num_alp ** (len(columnTitle_list) - idx - 1))
         return cur_num
