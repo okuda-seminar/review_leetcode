@@ -3,7 +3,7 @@
 #
 # [383] Ransom Note
 #
-import collections
+from collections import Counter
 
 
 # @lc code=start
@@ -14,8 +14,8 @@ class Solution:
         space: O(n)
         n : max(len(ransomNote), len(magazine))
         """
-        ransomNote_counter = collections.Counter(ransomNote)
-        magazine_counter = collections.Counter(magazine)
+        ransomNote_counter = Counter(ransomNote)
+        magazine_counter = Counter(magazine)
 
         for alph in ransomNote_counter:
             if magazine_counter[alph] < ransomNote_counter[alph]:
