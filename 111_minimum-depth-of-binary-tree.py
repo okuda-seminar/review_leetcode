@@ -1,6 +1,3 @@
-# n = the number of nodes
-# time = O(n)
-# space = O(n)
 # done time = 15m
 
 
@@ -18,7 +15,13 @@ class TreeNode:
 class Solution:
 
     def minDepth(self, root: TreeNode) -> int:
-        if not root:
+        # use queue
+        '''
+        n = the number of nodes
+        time = O(n)
+        space = O(n)
+
+        if root is None:
             return 0
 
         depth = 1
@@ -28,9 +31,26 @@ class Solution:
         while stack:
             cur_node, depth = stack.pop()
             if cur_node:
-                if not cur_node.right and not cur_node.left:
+                if cur_node.right is None and cur_node.left is None:
                     min_depth = min(depth, min_depth)
                 stack.append([cur_node.left, depth + 1])
                 stack.append([cur_node.right, depth + 1])
 
         return min_depth
+        '''
+
+        # use recursive funvtion
+        '''
+        n = the number of nodes
+        h = the depth of tree
+        time = O(n)
+        space = O(h)
+        '''
+
+        if root is None:
+            return 0
+
+        if root.left is None or root.right is None:
+            return max(self.minDepth(root.left), self.minDepth(root.right)) + 1
+
+        return min(self.minDepth(root.left), self.minDepth(root.right)) + 1
