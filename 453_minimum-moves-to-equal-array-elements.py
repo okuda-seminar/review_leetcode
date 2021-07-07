@@ -9,7 +9,7 @@ class Solution:
     def minMoves(self, nums: List[int]) -> int:
         """
         time: O(len(nums))
-        space: O(1)
+        space: O(len(nums))
         """
         min_num = min(nums)
         return sum([num - min_num for num in nums])
