@@ -14,7 +14,7 @@ class Solution:
         right = len(sequence) // len(word) + 1
 
         while 1 < right - left:
-            mid = (left + right + 1) >> 1
+            mid = (left + right) >> 1
             if word * mid in sequence:
                 left = mid
             else:
