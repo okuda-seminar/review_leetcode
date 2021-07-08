@@ -18,9 +18,8 @@ class Solution:
         if root is None:
             return False
 
-        elif root.left is None and root.right is None and root.val == targetSum:
-            return True
+        elif root.left is None and root.right is None:
+            return root.val == targetSum
 
-        else:
-            return self.hasPathSum(root.left, targetSum - root.val)\
-                or self.hasPathSum(root.right, targetSum - root.val)
+        return self.hasPathSum(root.left, targetSum - root.val)\
+            or self.hasPathSum(root.right, targetSum - root.val)
