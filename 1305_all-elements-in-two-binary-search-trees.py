@@ -1,5 +1,5 @@
 # n = node of number of root1 and root2
-# time = O(n)
+# time = O(nlogn)
 # space = O(n)
 # done time = 20m
 
