@@ -7,19 +7,14 @@
 class Solution:
 
     def getKth(self, lo: int, hi: int, k: int) -> int:
-        arr = [i for i in range(lo, hi+1)]
-        power_arr = []
+        memorization = {1: 0}
 
-        for num in arr:
-            step = 0
-            cur_num = num
+        def power(x: int) -> int:
+            if x in memorization:
+                return memorization[x]
 
-            while cur_num > 1:
-                if cur_num%2 == 0:
-                    cur_num /= 2
-                else:
-                    cur_num = cur_num*3 + 1
-                step += 1
-            power_arr.append((step, num))
+            memorization[x] = 1 + power(3*x + 1 if x & 1 else x >> 1)
+            return memorization[x]
 
-        return sorted(power_arr)[k-1][1]
+        power_arr = [(power(x), x) for x in range(lo, hi + 1)]
+        return sorted(power_arr)[k - 1][1]
