@@ -15,7 +15,7 @@
 """
 V = node nums
 time complexity : O(V)
-space complexity : O(V)
+space complexity : O(1)
 """
 
 
