@@ -9,9 +9,15 @@ Answer :
 
 Almost the same answer as 509
 '''
+# DP : O(n)
 class Solution:
     def climbStairs(self, n: int) -> int:
-        # DP : O(n)
+        '''Compute climb ways
+        Args:
+            n(int): number of climb
+        Returns:
+            int: climb ways
+        '''
         if n <= 1:
             return n
 
