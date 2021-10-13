@@ -14,6 +14,12 @@ class Node:
 
 class Solution:
     def postorder(self, root: 'Node') -> List[int]:        
+        '''Store val postorder
+        Args:
+            root(Node): root have children
+        Returns:
+            List[int]: list of postorder val
+        '''
         '''DFS : O(V) # V : the number of nodes
 
         self.res = []
