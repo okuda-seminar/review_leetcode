@@ -43,7 +43,7 @@ class Solution:
         '''
         tri_arr = [0, 1, 1]
         if n <= 3:
-            return tri_arr[n-1]
+            return tri_arr[n - 1]
 
         for i in range(3, n + 1):
             tri_arr[i % 3] = sum(tri_arr)
