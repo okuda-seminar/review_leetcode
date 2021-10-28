@@ -18,8 +18,9 @@ class Solution:
             if i < 0 or len(nums) < i:
                 raise ValueError("nums[i] is out of range")
         nums_max = max(nums) + 1
-        if list(set(range(nums_max)) - set(nums)) == []:
+        if not list(set(range(nums_max)) - set(nums)):
             return nums_max
+
         else:
             return list(set(range(nums_max)) - set(nums))[0]
 
@@ -54,5 +55,6 @@ class Solution:
         for k,v in d.items():
             if v != 0:
                 return k
+                
         return nums_max
         

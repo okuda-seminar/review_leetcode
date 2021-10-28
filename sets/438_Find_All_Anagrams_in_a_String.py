@@ -21,7 +21,7 @@ class Solution:
             count[ord(c)-ord('a')] += 1
         # sliding window
         start, end, sz = 0, 0, len(p)
-        soFar = len(p)
+        so_far = len(p)
         
         for c in s:
             if end - start >= sz:
@@ -29,13 +29,14 @@ class Solution:
                 count[ord(tmp) - ord('a')] += 1
                 
                 if count[ord(tmp) - ord('a')] > 0:
-                    soFar += 1
+                    so_far += 1
                 start += 1
             tmp = s[end]
             count[ord(tmp) - ord('a')] -= 1
             if count[ord(tmp) - ord('a')] >= 0:
-                soFar -= 1
-            if soFar == 0: anagram.append(start)
+                so_far -= 1
+            if so_far == 0:
+                anagram.append(start)
             end += 1
         return anagram
 
@@ -64,9 +65,11 @@ class Solution:
                 d[i] -= 1
             else:
                 return False
+
         for k, v in d.items():
             if v != 0:
                 return False
+                
         return True
     
     def findAnagrams(self, s: str, p: str) -> List[int]:
