@@ -7,12 +7,14 @@ class Solution:
         """
         Args:
             s: str: given strings, 1 <= s.length <= 5*10**4
-            t: str: given strings, 1 <= s.length <= 5*10**4
+            t: str: given strings, 1 <= t.length <= 5*10**4
         Returns:
             bool: s and t is anagram
         """
-        assert len(s) != 0, "length of s is one or more"
-        assert len(t) != 0, "length of t is one or more"
+        length_low = 1
+        length_high = 5 * 10 ** 4
+        if len(s) < length_low or length_high < len(s) or len(t) < length_low or length_high < len(t):
+            raise ValueError("length s and t should be one or more and fifty thousand or less")
         s_dic = collections.Counter(s)
         t_dic = collections.Counter(t)
         return s_dic == t_dic
