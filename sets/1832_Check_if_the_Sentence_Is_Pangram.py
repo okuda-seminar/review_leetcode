@@ -13,7 +13,8 @@ class Solution:
         length_low = 1
         length_high = 1000
         num_alphabet = 26
-        if len(sentence) < length_low or length_high < len(sentence)
+        if len(sentence) < length_low or length_high < len(sentence):
+            raise ValueError("sentence length is one or more and one thousand or less")
         return len(Counter(sentence)) == num_alphabet
 
 # n = sentence.length
@@ -27,8 +28,9 @@ class Solution:
         Returns:
             bool: the sentence include all letter of the English alphabet
         """
-        if len(sentence) == 0:
-            raise ValueError("sentence is one or more")
-        if len(sentence) > 1000:
-            raise ValueError("sentence is one hundred or less")
-        return len(set(sentence)) == 26
+        length_low = 1
+        length_high = 1000
+        num_alphabet = 26
+        if len(sentence) < length_low or length_high < len(sentence):
+            raise ValueError("sentence length is one or more and one thousand or less")
+        return len(set(sentence)) == num_alphabet
