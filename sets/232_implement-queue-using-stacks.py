@@ -1,26 +1,26 @@
 #
-# @lc app=leetcode id=225 lang=python3
+# @lc app=leetcode id=232 lang=python3
 #
-# [225] Implement Stack using Queues
+# [232] Implement Queue using Stacks
 #
+
+# @lc code=start
 """
 n = len(input)
 time complexity : O(n)
 space complexity : O(n)
 """
-from collections import deque
 
 
-# @lc code=start
-class MyStack:
+class MyQueue:
 
     def __init__(self):
-        """initialize data structure
+        """Initialize data structure
         """
-        self.stack = deque()
+        self.stack = []
 
     def push(self, x: int) -> None:
-        """push element x to the top of the stack
+        """Push element x to the top of the stack
 
         Args:
             x(int): integer
@@ -33,29 +33,29 @@ class MyStack:
         Returns:
             int: the element on the top of the stack
         """
-        return self.stack.pop()
+        return self.stack.pop(0)
 
-    def top(self) -> int:
-        """return the element on the top of the stack
+    def peek(self) -> int:
+        """Returns the element at the front of the stack
 
         Returns:
-            int: the element on the top of the stack
+            int: the element on the front of the stack
         """
-        ans = self.stack.pop()
-        self.stack.append(ans)
-        return ans
+        return self.stack[0]
 
     def empty(self) -> bool:
-        """return true if the stack is empty, false otherwise
+        """Return true if the stack is empty, false otherwise
 
         Returns:
             bool: true if the stack is empty, false otherwise
         """
         return len(self.stack) == 0
-# Your MyStack object will be instantiated and called as such:
-# obj = MyStack()
+
+# Your MyQueue object will be instantiated and called as such:
+# obj = MyQueue()
 # obj.push(x)
 # param_2 = obj.pop()
-# param_3 = obj.top()
+# param_3 = obj.peek()
 # param_4 = obj.empty()
 # @lc code=end
+
