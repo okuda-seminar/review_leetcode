@@ -61,6 +61,6 @@ class Solution:
         if n in self.memo:
             return self.memo[n]
 
-        res = self.fib(n - 1) + self.fib(n - 2)
-        self.memo[n] = res
-        return res
+        fib_num = self.fib(n - 1) + self.fib(n - 2)
+        self.memo[n] = fib_num
+        return fib_num

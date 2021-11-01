@@ -18,12 +18,12 @@ class Solution:
         if numRows == 1:
             return [[1]]
 
-        res = [[1], [1, 1]]
+        pascal_trianlge = [[1], [1, 1]]
         for i in range(2, numRows):
-            cur_res = [1]
-            for j in range(1, len(res[i - 1])):
-                cur_res.append(res[i - 1][j] + res[i - 1][j - 1])
-            cur_res.append(1)
-            res.append(cur_res)
+            cur_row = [1]
+            for j in range(1, len(pascal_triangle[i - 1])):
+                cur_row.append(pascal_triangle[i - 1][j] + pascal_triangle[i - 1][j - 1])
+            cur_row.append(1)
+            pascal_triangle.append(cur_row)
 
-        return res
+        return pascal_triangle

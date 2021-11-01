@@ -1,10 +1,11 @@
+'''
 Q[119]. Pascals Triangle II
 
 
 n = rowIndex ([1, 33])
 time : O(n^2)
 space : O(n)
-
+'''
 
 class Solution:
     def getRow(self, rowIndex: int) -> List[int]:
@@ -18,24 +19,24 @@ class Solution:
         if rowIndex == 0:
             return [1]
 
-        res = [[1], [1, 1]]
+        pascal_triangle = [[1], [1, 1]]
         for i in range(2, rowIndex + 1):
-            cur_res = [1]
-            for j in range(1, len(res[i - 1])):
-                cur_res.append(res[i - 1][j] + res[i - 1][j - 1])
-            cur_res.append(1)
-            res.append(cur_res)
+            cur_row = [1]
+            for j in range(1, len(pascal_triangle[i - 1])):
+                cur_row.append(pascal_triangle[i - 1][j] + pascal_triangle[i - 1][j - 1])
+            cur_row.append(1)
+            pascal_triangle.append(cur_row)
 
-        return res[-1]
+        return pascal_triangle[-1]
 
         # more simple solution
         if rowIndex == 0:
             return [1]
 
-        res = [1] * (rowIndex + 1)
+        pascal_triangle = [1] * (rowIndex + 1)
 
         for row in range(2, rowIndex + 1):
             for idx in reversed(range(1, row)):
-                res[idx] += res[idx - 1]
+                pascal_triangle[idx] += pascal_triangle[idx - 1]
 
-        return res
+        return pascal_triangle

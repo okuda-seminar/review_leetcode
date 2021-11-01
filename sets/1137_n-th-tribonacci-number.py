@@ -71,7 +71,7 @@ class Solution:
         if n in self.memo:
             return self.memo[n]
 
-        res = self.tribonacci(n - 1) + self.tribonacci(n - 2)\
+        tri_sum = self.tribonacci(n - 1) + self.tribonacci(n - 2)\
               + self.tribonacci(n - 3)
-        self.memo[n] = res
-        return res
+        self.memo[n] = tri_sum
+        return tri_sum
