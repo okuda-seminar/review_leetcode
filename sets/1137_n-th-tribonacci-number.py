@@ -19,35 +19,15 @@ class Solution:
         Returns:
             int: nth tibonacci number
         '''
-        if n == 0:
-            return 0
-
-        if n <= 2:
-            return 1
-
-        first_num = 0
-        second_num = 1
-        third_num = 1
-        for n in range(3, n + 1):
-            first_num, second_num, third_num = second_num, third_num,\
-                first_num + second_num + third_num
-        return third_num
-
-    DP : O(n)
-    def tribonacci(self, n: int) -> int:
-        '''Compute nth tibonacci number
-        Args:
-            n(int): number of tibonacci
-        Returns:
-            int: nth tibonacci number
-        '''
+        tri_num = 3
         tri_arr = [0, 1, 1]
-        if n <= 3:
+        if n <= tri_num:
             return tri_arr[n - 1]
 
-        for i in range(3, n + 1):
-            tri_arr[i % 3] = sum(tri_arr)
-        return tri_arr[n % 3]
+        for i in range(tri_num, n + 1):
+            tri_arr[i % tri_num] = sum(tri_arr)
+
+        return tri_arr[n % tri_num]
 
     memorization using lru_cache : O(n)
 
