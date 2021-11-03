@@ -20,24 +20,24 @@ class Solution:
         # n = len(s)
         # time : O(n^2)
         # space : O(n)
-        ans = []
+        shortest_to_char = []
         for i in range(len(s)):
-            ans.append(min([abs(a - i) for a in standard_idx]))
+            shortest_to_char.append(min([abs(i - j) for j in standard_idx]))
 
-        return ans
+        return shortest_to_char
 
         # n = len(s)
         # time : O(n)
         # space : O(n)
-        ans = [0] * len(s)
+        shortest_to_char = [0] * len(s)
         idx = 0
         for i in range(len(s)):
             if i < standard_idx[0]:
-                ans[i] = standard_idx[0] - i
+                shortest_to_char[i] = standard_idx[0] - i
             elif i > standard_idx[-1]:
-                ans[i] = i - standard_idx[-1]
+                shortest_to_char[i] = i - standard_idx[-1]
             elif i == standard_idx[idx]:
                 idx += 1
             else:
-                ans[i] = min(standard_idx[idx] - i, i - standard_idx[idx - 1])
-        return ans
+                shortest_to_char[i] = min(standard_idx[idx] - i, i - standard_idx[idx - 1])
+        return shortest_to_char

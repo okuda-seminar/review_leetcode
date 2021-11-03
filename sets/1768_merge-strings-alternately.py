@@ -16,15 +16,15 @@ class Solution:
         if not word1 or not word2:
             return ''
 
-        res = []
+        merge_words = []
         word_list1 = list(word1)
         word_list2 = list(word2)
         for str1, str2 in zip(word_list1, word_list2):
-            res.append(str1 + str2)
+            merge_words.append(str1 + str2)
 
         if len(word1) > len(word2):
-            res.append(word1[len(word2):])
+            merge_words.append(word1[len(word2):])
         else:
-            res.append(word2[len(word1):])
+            merge_words.append(word2[len(word1):])
 
-        return ''.join(res)
+        return ''.join(merge_words)
