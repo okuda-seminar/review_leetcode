@@ -35,6 +35,7 @@ class Solution:
         """
         if not nums:
             return None
+            
         heap = []
         for num in nums:
             if len(heap) < k:

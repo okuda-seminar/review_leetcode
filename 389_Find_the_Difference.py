@@ -12,15 +12,15 @@ class Solution:
         Examples:
             findTheDifference("abcd","abcde") <- "e"
         """
-        d = {}
+        count_dict = {}
         for i in t:
-            if i in d:
-                d[i] += 1
+            if i in count_dict:
+                count_dict[i] += 1
             else:
-                d[i] = 1
+                count_dict[i] = 1
         for i in s:
-            if i in d:
-                d[i] -= 1
-        for k, v in d.items():
-            if v == 1:
-                return k
+            if i in count_dict:
+                count_dict[i] -= 1
+        for key, value in count_dict.items():
+            if value == 1:
+                return key

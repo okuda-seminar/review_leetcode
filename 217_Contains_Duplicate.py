@@ -15,8 +15,6 @@ class Solution:
         return len(set(nums)) != len(nums)
 
 
-
-
 # n = len(nums)
 # time = O(n)
 # space = O(n)
@@ -31,16 +29,11 @@ class Solution:
             containsDuplicate([1,2,3,4,1]) <- true
             containsDuplicate([2,3,4,5,6]) <- false
         """
-        assert type(nums) == list, "nums should be list"
-        if len(nums) < 1 or 10**5 < len(nums):
-            raise ValueError("nums length should be one or more and ten thousand or less")
-        d = {}
+        nums_dict = {}
         for num in nums:
-            assert type(num) == int, "nums[i] should be integer"
-            if num < -10**9 or 10**9 < num:
-                raise ValueError("nums[i] length should be -10^9 or more and 10^9 or less")
-            if num in d:
+            if num in nums_dict:
                 return True
+
             else:
-                d[num] = 1
+                nums_dict[num] = 1
         return False
