@@ -19,15 +19,15 @@ class Solution:
         Returns:
             int: nth tibonacci number
         '''
-        tri_num = 3
+        TRY_NUM = 3
         tri_arr = [0, 1, 1]
-        if n <= tri_num:
+        if n <= TRY_NUM:
             return tri_arr[n - 1]
 
-        for i in range(tri_num, n + 1):
-            tri_arr[i % tri_num] = sum(tri_arr)
+        for i in range(TRY_NUM, n + 1):
+            tri_arr[i % TRY_NUM] = sum(tri_arr)
 
-        return tri_arr[n % tri_num]
+        return tri_arr[n % TRY_NUM]
 
     memorization using lru_cache : O(n)
 
