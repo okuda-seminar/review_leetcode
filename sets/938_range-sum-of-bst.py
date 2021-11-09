@@ -11,22 +11,24 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+from collections import deque
+
+
+# use dfs
 """
 V = node nums
-time complexity : O(V)
-space complexity : O(1)
+E = edge nums
+time complexity : O(V + E)
+space complexity : O(V)
 """
-
 
 class Solution:
     def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
         """compute sum of the all nodes with a value in the range [low, high]
-
         Args:
             root(Optional(TreeNode)): a binary tree
             low(int): integer
             high(int): integer
-
         Returns:
             int: sum of the all nodes with a value in the range [low, high]
         """
@@ -38,7 +40,6 @@ class Solution:
 
     def dfs(self, root: Optional[TreeNode]):
         """compute the sum
-
         Args:
             root(Optional(TreeNode)): a binary tree
         """
@@ -50,4 +51,69 @@ class Solution:
 
         self.dfs(root.left)
         self.dfs(root.right)
+
+
+# use dfs by queue
+"""
+V = node nums
+E = edge nums
+time complexity : O(V + E)
+space complexity : O(V)
+"""
+
+class Solution:
+    def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
+        """compute sum of the all nodes with a value in the range [low, high]
+        Args:
+            root(Optional(TreeNode)): a binary tree
+            low(int): integer
+            high(int): integer
+        Returns:
+            int: sum of the all nodes with a value in the range [low, high]
+        """
+        stack = deque()
+        stack.append(root)
+        ans = 0
+        while stack:
+            cur = stack.pop()
+            if cur:
+                if low <= cur.val <= high:
+                    ans += cur.val
+                stack.append(cur.left)
+                stack.append(cur.right)
+        
+        return ans
+
+
+
+# use bfs
+"""
+V = node nums
+E = edge nums
+time complexity : O(V + E)
+space complexity : O(V)
+"""
+
+class Solution:
+    def rangeSumBST(self, root: Optional[TreeNode], low: int, high: int) -> int:
+        """compute sum of the all nodes with a value in the range [low, high]
+        Args:
+            root(Optional(TreeNode)): a binary tree
+            low(int): integer
+            high(int): integer
+        Returns:
+            int: sum of the all nodes with a value in the range [low, high]
+        """
+        stack = deque()
+        stack.append(root)
+        ans = 0
+        while stack:
+            cur = stack.popleft()
+            if cur:
+                if low <= cur.val <= high:
+                    ans += cur.val
+                stack.append(cur.left)
+                stack.append(cur.right)
+        
+        return ans
 # @lc code=end
