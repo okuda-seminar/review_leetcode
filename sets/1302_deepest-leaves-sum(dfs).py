@@ -11,15 +11,17 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-
-"""
-V = node nums
-time complexity : O(V)
-space complexity : O(1)
-"""
+from collections import deque
 
 
 # use dfs
+"""
+V = node nums
+E = edge nums
+time complexity : O(V + E)
+space complexity : O(V)
+"""
+
 class Solution:
     def deepestLeavesSum(self, root: Optional[TreeNode]) -> int:
         """compute the deepest leaves sum
@@ -55,6 +57,37 @@ class Solution:
         self.dfs(root.left, level + 1)
         self.dfs(root.right, level + 1)
 
-# Examples: deepesetLeavesSum([1, 2, 3, null, 4, 5, null]) -> 9
+
+# use bfs
+"""
+V = node nums
+E = edge nums
+time complexity : O(V + E)
+space complexity : O(V)
+"""
+
+class Solution:
+    def deepestLeavesSum(self, root: Optional[TreeNode]) -> int:
+        """compute the deepest leaves sum
+
+        Args:
+            root(Optional(TreeNode)): a binary tree
+
+        Returns:
+            int: deepeset leaves sum
+        """
+        queue = deque()
+        queue.append(root)
+        while queue:
+            ans = 0
+            for _ in range(len(queue)):
+                cur = queue.popleft()
+                ans += cur.val
+                if cur.left:
+                    queue.append(cur.left)
+                if cur.right:
+                    queue.append(cur.right)
+
+        return ans
 
 # @lc code=end
