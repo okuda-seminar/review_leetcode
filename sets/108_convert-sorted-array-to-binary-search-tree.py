@@ -23,7 +23,7 @@ class Solution:
             TreeNode: binary search tree
         '''
         if not nums:
-            return
+            return None
 
         middle = len(nums) // 2
         root = TreeNode(nums[middle])
