@@ -1,3 +1,9 @@
+"""
+stack
+n = len(s)
+time = O(n)
+space = O(1)
+"""
 class Solution:
     def isValid(self, s: str) -> bool:
         bra_dict = {')':'(', '}':'{', ']':'['}
