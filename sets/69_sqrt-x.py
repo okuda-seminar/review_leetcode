@@ -30,13 +30,13 @@ class Solution:
         time: O(logx)
         space: O(1)
         """
-        ok = 0
-        ng = x + 1
-        while ng - ok > 1:
-            mid = (ok + ng) // 2
+        low = 0
+        high = x + 1
+        while 1 < high - low:
+            mid = (low + high) // 2
             if mid ** 2 <= x:
-                ok = mid
+                low = mid
             else:
-                ng = mid
-        return ok
+                high = mid
+        return low
 # @lc code=end

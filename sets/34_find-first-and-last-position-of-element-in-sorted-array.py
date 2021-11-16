@@ -5,6 +5,15 @@
 #
 
 # @lc code=start
+import bisect
+
+
+# ans1
+"""
+n = len(nums)
+time complexity: O(logn)
+space complexity: O(logn)
+"""
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
         """ find position
@@ -28,12 +37,41 @@ class Solution:
         return [-1, -1]
 
     def search(self, target):
-        left, right = 0, len(self.nums)
-        while left < right:
+        left, right = -1, len(self.nums)
+        while 1 < right - left:
             mid = (left + right) // 2
             if self.nums[mid] < target:
-                left = mid + 1
+                left = mid
             else:
                 right = mid
-        return left
+        return right
+
+
+# use bisect
+"""
+n = len(nums)
+time complexity: O(logn)
+space complexity: O(1)
+"""
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        """ find position
+
+        Args:
+            nums(List[int]): list which is sorted in ascending order
+            target: integer
+
+        Returns:
+            List[int]: starting and ending position of a given target value
+        """
+        if len(nums) == 0:
+            return [-1, -1]
+
+        left = bisect.bisect_left(nums, target)
+        right = bisect.bisect_right(nums, target)
+
+        if left == right:
+            return [-1, -1]
+        
+        return [left, right - 1]
 # @lc code=end

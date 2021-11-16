@@ -23,22 +23,22 @@ class Solution:
         if len(nums) == 0:
             return -1
 
-        left = 0
-        right = len(nums) - 1
-        while left <= right:
+        left = -1
+        right = len(nums)
+        while 1 < right - left:
             mid = (left + right) // 2
             if nums[mid] == target:
                 return mid
 
             if nums[mid] < target:
-                if nums[left] <= target and nums[mid] < nums[left]:
+                if nums[left] < target and nums[mid] < nums[left]:
                     right = mid
                 else:
-                    left = mid + 1
+                    left = mid
 
             else:
-                if target < nums[left] and nums[left] <= nums[mid]:
-                    left = mid + 1
+                if target <= nums[left] and nums[left] < nums[mid]:
+                    left = mid
                 else:
                     right = mid
 

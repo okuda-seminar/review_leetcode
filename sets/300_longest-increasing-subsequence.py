@@ -3,6 +3,8 @@
 #
 # [300] Longest Increasing Subsequence
 #
+from bisect import bisect_left
+
 
 # @lc code=start
 class Solution:
@@ -20,6 +22,7 @@ class Solution:
         n = len(nums)
         time complexity: O(nlogn)
         space complexity: O(n)
+        """
         """
         def binary_search(arr, num) -> int:
             left = 0
@@ -40,6 +43,25 @@ class Solution:
                 left = binary_search(arr, num)
                 arr[left] = num
         return len(arr)
+        """
+
+
+        # use binary search by using bisect
+        """
+        n = len(nums)
+        time complexity: O(nlogn)
+        space complexity: O(n)
+        """
+        arr = []
+        for num in nums:
+            if not arr or arr[-1] < num:
+                arr.append(num)
+            else:
+                left = bisect_left(arr, num)
+                arr[left] = num
+        return len(arr)
+
+
         # use dp
         """
         n = len(nums)
@@ -58,4 +80,3 @@ class Solution:
         return max(LIS)
         """
 # @lc code=end
-
