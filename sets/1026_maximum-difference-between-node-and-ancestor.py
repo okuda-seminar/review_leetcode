@@ -54,7 +54,7 @@ class Solution:
 
 
 
-# use dfs by queue
+# use dfs by deque
 """
 V = node nums
 E = edge nums
@@ -72,9 +72,7 @@ class Solution:
         Returns:
             int: max ancestor difference 
         """
-        stack = deque()
-        print()
-        stack.append([root, float("inf"), float("-inf")])
+        stack = deque([(root, float("inf"), float("-inf"))])
         ans = 0
         while stack:
             cur, min_num, max_num = stack.pop()
@@ -107,8 +105,7 @@ class Solution:
         Returns:
             int: max ancestor difference 
         """
-        queue = deque()
-        queue.append([root, float("inf"), float("-inf")])
+        queue = deque([(root, float("inf"), float("-inf"))])
         ans = 0
         while queue:
             cur, min_num, max_num = queue.popleft()

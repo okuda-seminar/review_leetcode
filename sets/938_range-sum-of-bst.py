@@ -53,7 +53,7 @@ class Solution:
         self.dfs(root.right)
 
 
-# use dfs by queue
+# use dfs by deque
 """
 V = node nums
 E = edge nums
@@ -71,8 +71,7 @@ class Solution:
         Returns:
             int: sum of the all nodes with a value in the range [low, high]
         """
-        stack = deque()
-        stack.append(root)
+        stack = deque([root])
         ans = 0
         while stack:
             cur = stack.pop()
@@ -104,16 +103,15 @@ class Solution:
         Returns:
             int: sum of the all nodes with a value in the range [low, high]
         """
-        stack = deque()
-        stack.append(root)
+        queue = deque([root])
         ans = 0
-        while stack:
-            cur = stack.popleft()
+        while queue:
+            cur = queue.popleft()
             if cur:
                 if low <= cur.val <= high:
                     ans += cur.val
-                stack.append(cur.left)
-                stack.append(cur.right)
+                queue.append(cur.left)
+                queue.append(cur.right)
         
         return ans
 # @lc code=end

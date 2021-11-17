@@ -76,8 +76,7 @@ class Solution:
         Returns:
             int: deepeset leaves sum
         """
-        queue = deque()
-        queue.append(root)
+        queue = deque([root])
         while queue:
             ans = 0
             for _ in range(len(queue)):
