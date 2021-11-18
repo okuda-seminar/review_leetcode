@@ -18,13 +18,13 @@ class Solution:
             raise ValueError('len(nums) should be [1, 500]')
 
         nums.sort()
-        ans = []
+        min_subsequence = []
         sum_nums = sum(nums)
-        sum_ans = 0
+        sum_subsequence = 0
         while True:
-            ans.append(nums[-1])
-            sum_ans += nums[-1]
+            min_subsequence.append(nums[-1])
+            sum_subsequence += nums[-1]
             sum_nums -= nums[-1]
             nums.pop()
-            if sum_ans > sum_nums:
-                return ans
+            if sum_subsequence > sum_nums:
+                return min_subsequence
