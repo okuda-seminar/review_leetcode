@@ -1,6 +1,6 @@
 # n = len(nums)
 # time = O(n)
-# space = O(1)
+# space = O(n)
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         """

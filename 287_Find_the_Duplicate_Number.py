@@ -12,11 +12,11 @@ class Solution:
             findDuplicate([1,2,3,4,5,5]) <- 5
         """
         d = {}
-        for i in nums:
-            if i in d:
-                return i
+        for num in nums:
+            if num in d:
+                return num
 
-            d[i] = 1
+            d[num] = 1
 
 # Floyd's cycle detection algorithm
 # n = len(nums)
