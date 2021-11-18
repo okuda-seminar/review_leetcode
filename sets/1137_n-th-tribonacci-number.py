@@ -14,6 +14,8 @@ class Solution:
     DP : O(n)
 
     from collections import deque
+
+
     def tribonacci(self, n: int) -> int:
         '''Compute nth tibonacci number
         Args:
@@ -28,7 +30,7 @@ class Solution:
 
         sum_tri_arr = sum(tri_arr)
         
-        for i in range(tri_num, n + 1):
+        for i in range(TRY_NUM, n + 1):
             tri_arr.append(sum_tri_arr)
             sum_tri_arr += sum_tri_arr - tri_arr[0]
             tri_arr.popleft()
