@@ -120,7 +120,6 @@ class Solution:
             s = "abcba", p = "abc" <- [0, 2]
         """
         len_p = len(p)
-        print(len_p)
         anagram_index = []
         for i in range(len(s) - len_p + 1):
             if self.isAnagram(s[i:(i+len_p)], p):

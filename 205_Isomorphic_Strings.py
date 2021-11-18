@@ -1,6 +1,6 @@
 # n = len(s) = len(t)
 # time = O(n)
-# space = O(1)
+# space = O(n)
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
         """compute isomorphic
