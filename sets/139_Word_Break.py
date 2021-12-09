@@ -42,10 +42,26 @@ space = O(n)
 from typing import List
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
-        dp = [False] * (len(s)+1)
+        """word break
+        Args:
+            s (str)
+            wordDict (List[str]): dictionary of strings
+        Returns:
+            bool: if s can be segmented into a space-separated sequence of one or more dictionary words
+        Examples:
+            wordBreak("leetcode", ["leet", "code"])
+        """
+        dp = [False] * (len(s) + 1)
         dp[0] = True
-        for i in range(1, len(s)+1):
-            for j in range(i):
+        len_word = [len(x) for x in wordDict]
+        max_len, min_len = max(len_word), min(len_word)
+        wordDict = set(wordDict)
+        for i in range(1,len(s)+1):
+            for j in range(i-1, -1, -1):
+                if i - j < min_len:
+                    continue
+                if max_len < i - j:
+                    break
                 if dp[j] and s[j:i] in wordDict:
                     dp[i] = True
                     break
