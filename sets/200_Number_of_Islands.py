@@ -36,7 +36,7 @@ class Solution:
         self.count -= 1
 
 """
-union find
+dfs
 n = len(grid)
 m = len(grid[0])
 time = O(nm)
@@ -67,3 +67,37 @@ class Solution:
         self.dfs(grid, i-1, j)
         self.dfs(grid, i, j+1)
         self.dfs(grid, i, j-1)
+
+"""
+bfs
+n = len(grid)
+m = len(grid[0])
+time = O(nm)
+space = O(1)
+"""
+from collections import deque
+from typing import List
+
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        if grid is None:
+            return 0
+        
+        cnt = 0
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                if grid[i][j] == '1':
+                    grid[i][j] = '0'
+                    cnt += 1
+                    self.bfs(grid, i, j)
+        return cnt
+    
+    def bfs(self, grid: List[List[int]], i: int, j:int) -> None:
+        queue = deque([(i,j)])
+        while queue:
+            I,J = queue.popleft()
+            for i,j in [I+1,J],[I,J+1],[I-1,J],[I,J-1]:
+                if 0 <= i < len(grid) and 0 <= j < len(grid[0]) and grid[i][j] == '1':
+                    grid[i][j] = '0'
+                    queue.append((i,j))
+        
