@@ -14,22 +14,20 @@ class TreeNode:
 
 class Solution:
     def maxPathSum(self, root: TreeNode) -> int:
-        max_path = float("-inf")
-        def get_max_gain(node):
-            nonlocal max_path
-            if node is None:
-                return 0
+        self.max_path = float("-inf")
+        self.get_max_path(root)
+        return self.max_path
 
-            gain_on_left = get_max_gain(node.left)
-            gain_on_right = get_max_gain(node.right)		
-            current_max_path = gain_on_left + gain_on_right
-            max_path = max(max_path, current_max_path)
+    def get_max_path(self, node: TreeNode):
+        if node is None:
+            return 0
 
-            return max(gain_on_left, gain_on_right) + 1
-        
-        
-        get_max_gain(root)
-        return max_path		
+        gain_on_left = self.get_max_path(node.left)
+        gain_on_right = self.get_max_path(node.right)		
+        current_max_path = gain_on_left + gain_on_right
+        self.max_path = max(self.max_path, current_max_path)
+        return max(gain_on_left, gain_on_right) + 1
+
 """
 Find the maximum sum of the node under the condition that a node passes only once.
 N : the number of vertex
@@ -39,20 +37,16 @@ space complexity : O(1)
 """
 class Solution:
     def maxPathSum(self, root: TreeNode) -> int:
-        max_path = float("-inf")
-        def get_max_gain(node):
-            nonlocal max_path
-            if node is None:
-                return 0
-            
-            
-            gain_on_left = max(get_max_gain(node.left), 0)
-            gain_on_right = max(get_max_gain(node.right), 0)		
-            current_max_path = node.val + gain_on_left + gain_on_right
-            max_path = max(max_path, current_max_path)
+        self.max_path = float("-inf")
+        self.get_max_gain(root)
+        return self.max_path
+    
+    def get_max_gain(self, node: TreeNode) -> int:
+        if node is None:
+            return 0
 
-            return max(gain_on_left, gain_on_right) + node.val
-        
-        
-        get_max_gain(root)
-        return max_path
+        gain_on_left = max(self.get_max_gain(node.left), 0)
+        gain_on_right = max(self.get_max_gain(node.right), 0)		
+        current_max_path = node.val + gain_on_left + gain_on_right
+        self.max_path = max(self.max_path, current_max_path)
+        return max(gain_on_left, gain_on_right) + node.val
