@@ -1,6 +1,7 @@
 """
 Designing Search functions that allow for one-character differences
 """
+from collections import deque
 class Trie:
     
     def __init__(self):
@@ -16,32 +17,32 @@ class Trie:
         node[self.eos] = True
         
     def search(self, word: str) -> bool:
-        node = self.root
+        curr = self.root
+        idx = 0
         cnt = 0
-        for char in word:
-            if char in node:
-                node = node[char]
-            
+        queue = deque()
+        queue.append((curr, idx, cnt))
+        while queue:
+            curr, idx, cnt = queue.popleft()
+            if idx == len(word):
+                break
+            if word[idx] not in curr:
+                if cnt == 0:
+                    for node in curr.values():
+                        queue.append((node, idx + 1, cnt + 1))
+                else:
+                    if not queue:
+                        return False
+ 
             else:
-                for d in node.values():
-                    node = d
-                cnt += 1
-                if cnt > 1:
-                    return False
-                
-        return self.eos in node
-        
-    def startsWith(self, prefix: str) -> bool:
-        node = self.root
-        for char in prefix:
-            if char not in node:
-                return False
-            
-            node = node[char]
-        return True
+                curr = curr[word[idx]]
+                queue.append((curr, idx + 1, cnt))
+        return curr[self.eos]
 
-"""
-Future Policy
- Problem: Cannot handle cases where multiple characters are contained in a dictionary.
- Solution: using deque
-""" 
+if __name__ == '__main__':
+    trie = Trie()
+    trie.insert("word")
+    trie.insert("work")
+    trie.insert("wolk")
+    trie.insert("will")
+    assert trie.search("wars") == False, "bad case"
