@@ -44,3 +44,22 @@ class Solution:
 
         for i in range(len(candidates)):
             self.backtracking(path + [candidates[i]], candidates[i:], target - candidates[i])
+
+
+# dp solution
+# n = len(candidates)
+# m = target
+# time complexity = O(n * m^2)
+# space complexity = O(n * m)
+
+
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        dp = [[] for _ in range(target+1)]
+        for c in candidates:
+            for i in range(c, target+1):
+                if i == c:
+                    dp[i].append([c])
+                for comb in dp[i-c]:
+                    dp[i].append(comb + [c])
+        return dp[-1]
