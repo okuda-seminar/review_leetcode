@@ -53,3 +53,40 @@ class Solution:
                 n_left -= 1
                 self.backtracking(path + '(', n_left, n_right)
                 n_left += 1
+
+
+import copy
+
+from collections import deque
+
+
+class Solution:
+    def generateParenthesis1(self, n: int) -> List[str]:
+        """Function to generate all combinations of well-formed parentheses
+        Args:
+            n(int): integer
+        Returns:
+            List[str]: all combinations of well-formed parentheses
+        """
+        ans = []
+        queue = deque()
+        queue.append([0, 0, []])
+        while queue:
+            left, right, s = queue.popleft()
+            if len(s) == 2 * n:
+                ans.append("".join(s))
+            if left > right:
+                copy_s = copy.deepcopy(s)
+                if left < n:
+                    s.append("(")
+                    queue.append([left + 1, right, s])
+                if right < n:
+                    copy_s.append(")")
+                    queue.append([left, right + 1, copy_s])
+            elif left == right:
+                copy_s = copy.deepcopy(s)
+                if left < n:
+                    s.append("(")
+                    queue.append([left + 1, right, s])
+
+        return ans
