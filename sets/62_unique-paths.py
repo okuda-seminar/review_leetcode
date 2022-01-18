@@ -48,4 +48,25 @@ class Solution:
                 dp[j][i] = dp[j - 1][i] + dp[j][i - 1]
         
         return dp[-1][-1]
+
+
+"""
+time: O(m * n)
+space: O(n)
+"""
+class Solution:
+    def uniquePaths(self, m: int, n: int) -> int:
+        """unique path
+        Args:
+            m (int): the number of row
+            n (int): the number of column
+        Returns:
+            int: the number of possible unique paths
+        """
+        dp = [1] * n
+        for i in range(m):
+            for j in range(n):
+                if i > 0 and j > 0:
+                    dp[j] += dp[j-1]
+        return dp[-1]
 # @lc code=end
